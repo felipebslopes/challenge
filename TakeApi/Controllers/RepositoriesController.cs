@@ -38,13 +38,7 @@ namespace TakeApi.Controllers
             try
             {
                 var challenges = await _service.GetRepositories();
-                var count = 0;
-
-                foreach(var item in challenges)
-                {
-                    item.id = count;
-                    count++;
-                }
+                //formata o json
                 var json = JsonConvert.SerializeObject(challenges, Formatting.Indented);
 
                 return Ok(json);

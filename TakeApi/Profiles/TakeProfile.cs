@@ -12,8 +12,11 @@ namespace TakeApi.Profiles
     {
         public TakeProfile()
         {
-            CreateMap<RepositoriesDTO, Challenge>()               
-                .ForMember(
+            int count = 0;
+            CreateMap<RepositoriesDTO, Challenge>().AfterMap((src, dest) =>
+            {    
+                    dest.id = count++;
+            }).ForMember(
                 dest => dest.avatar_url, opt =>
                 opt.MapFrom(src => src.owner.avatar_url)
                 ); 
