@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeApi", "TakeApi\TakeApi.csproj", "{041C22E3-587D-4A8F-97B5-AB67F9339C86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{041C22E3-587D-4A8F-97B5-AB67F9339C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041C22E3-587D-4A8F-97B5-AB67F9339C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041C22E3-587D-4A8F-97B5-AB67F9339C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041C22E3-587D-4A8F-97B5-AB67F9339C86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB242325-35CB-4EF4-B739-E42E6A7BAF47}
+	EndGlobalSection
+EndGlobal

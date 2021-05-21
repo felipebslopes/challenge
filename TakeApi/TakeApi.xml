@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TakeApi</name>
+    </assembly>
+    <members>
+        <member name="M:TakeApi.Controllers.RepositoriesController.Get">
+            <summary>
+            Método responsável por retornar os repositórios filtrados de acordo com a regra do desafio
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
