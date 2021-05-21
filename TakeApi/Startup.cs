@@ -70,7 +70,7 @@ namespace TakeApi
                  );
                 }
             });
-            }
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
@@ -89,7 +89,8 @@ namespace TakeApi
             {
                 endpoints.MapControllers();
             });
-            app.UseSwagger().UseSwaggerUI(options => {
+            app.UseSwagger().UseSwaggerUI(options =>
+            {
                 foreach (var item in apiVersionDescriptionProvider.ApiVersionDescriptions)
                 {
                     options.SwaggerEndpoint($"/swagger/{item.GroupName}/swagger.json", item.GroupName.ToUpperInvariant());

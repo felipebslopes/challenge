@@ -18,13 +18,13 @@ namespace TakeApi.Controllers
     [ApiVersion("1.0")]
     public class RepositoriesController : ControllerBase
     {
-        private IService _service;  
+        private IService _service;
 
-        
+
 
         public RepositoriesController(IService service)
         {
-            
+
             _service = service;
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace TakeApi.Controllers
 
                 return Ok(json);
             }
-            catch(Exception )
+            catch (Exception)
             {
                 return StatusCode(500, "Internal server error");
             }

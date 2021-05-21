@@ -18,7 +18,7 @@ namespace TakeApi.Data
     {
         private IMapper _mapper;
         private readonly IOptions<TakeApiSettings> _takeApiSettings;
-        public Service(IMapper mapper ,IOptions<TakeApiSettings> takeApiSettings)
+        public Service(IMapper mapper, IOptions<TakeApiSettings> takeApiSettings)
         {
             _mapper = mapper;
             _takeApiSettings = takeApiSettings;
@@ -26,7 +26,7 @@ namespace TakeApi.Data
         //Lista todos os repositórios que estão no git
         public async Task<List<Challenge>> GetRepositories()
         {
-             List<RepositoriesDTO> challengesDTO = new List<RepositoriesDTO>();
+            List<RepositoriesDTO> challengesDTO = new List<RepositoriesDTO>();
 
             using (var httpClient = new HttpClient())
             {
@@ -51,16 +51,33 @@ namespace TakeApi.Data
         //Filtra os repositórios de acordo com a definição do teste
         private List<RepositoriesDTO> FiltroChallenge(List<RepositoriesDTO> repos)
         {
-           var repositories = repos.Where(x => x.language != null).Where(repos => repos.language.Contains("C#"))
-                                                                                   .OrderBy(x => Convert.ToDateTime(x.created_at)).Take(5).ToList();
-            return repositories;
+            var repositories = repos.Where(x => x.language != null).Where(repos => repos.language.Contains("C#"))
+                                                                                    .OrderBy(x => Convert.ToDateTime(x.created_at)).Take(5).ToList();
+
+            var reposIDIncrement = SetIDIncrement(repositories);
+            return reposIDIncrement;
         }
 
         //Mapeia os campos que preciso para retornar para o ChatBot
         private List<Challenge> RepostoriesToChallenges(List<RepositoriesDTO> repositories)
         {
-           var challenges =  _mapper.Map<IEnumerable<Challenge>>(repositories).ToList();
+            var challenges = _mapper.Map<IEnumerable<Challenge>>(repositories).ToList();
             return challenges;
+        }
+
+        //Seta id incremental para que o bot consiga entender a posição de cada repositório
+        private List<RepositoriesDTO> SetIDIncrement(List<RepositoriesDTO> repos)
+        {
+            var count = 0;
+            foreach (var item in repos)
+            {
+                item.id = count.ToString();
+                count++;
+            }
+
+            return repos;
+
+
         }
     }
 }
