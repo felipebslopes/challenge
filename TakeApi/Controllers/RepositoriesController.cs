@@ -39,6 +39,7 @@ namespace TakeApi.Controllers
             {
                 var challenges = await _service.GetRepositories();
                 var count = 0;
+
                 foreach(var item in challenges)
                 {
                     item.id = count;
